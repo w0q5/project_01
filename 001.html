@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太极图</title>
+    <script src="../框架/jquery/jquery.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: aqua;
+        }
+        .box1{
+            margin: 50px auto;
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            border-radius: 150px;
+            display: flex;
+            overflow: hidden;
+            animation: zhuan 10s linear infinite;
+        }
+        .white,.black{
+            width: 150px;
+            height: 300px;
+            position: relative;
+        }
+        .white{
+            background-color:white;
+        }
+        .black{
+            background-color: black;
+        }
+        .ban1{
+            width: 75px;
+            height: 150px;
+            border-radius: 75px 0 0 75px;
+            background-color: black;
+            position: absolute;
+            right: 0;
+            /* top: 25px; */
+        }
+        .ban2{
+            width: 75px;
+            height: 150px;
+            border-radius: 0 75px 75px 0;
+            background-color: white;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .dian1,
+        .dian2{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+        }
+        .dian1{
+            background-color: white;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            z-index: 9;
+        }
+        .dian2{
+            background-color: black;
+            position: absolute;
+            top: 50px;
+            left: -25px;
+        }
+        @keyframes zhuan{
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="box1">
+        <div class="white">
+            <div class="ban1">
+                <div class="dian1"></div>
+            </div>
+        </div>
+        <div class="black">
+            <div class="ban2">
+                <div class="dian2"></div>
+            </div>
+        </div>
+    </div>
+
+<input type="checkbox" checked>
+</body>
+<script>
+    $(function(){
+        $('input').on('click',function(){
+            console.log($(this).prop('checked'));
+        })
+
+
+        var foo='123';
+        function a(){
+            var foo='456'
+            this.foo='789'
+            //this指向window 全局变量 相当于修改123为789
+            console.log(foo)
+        }
+        a()//456
+        
+        
+        var f='123';
+        function b(){
+            this.f='789'
+            console.log(f)
+        }
+        b()//123
+
+        var a=5;
+        function aa(){
+            a=0;
+            alert(a);
+            alert(this.a);
+            var a;
+            alert(a);
+        }
+        aa()
+        // new aa();
+
+    })
+</script>
+</html>

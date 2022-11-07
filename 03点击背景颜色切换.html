@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 800px;
+            margin: 100px auto;
+            background:red ;
+            position: relative;
+            padding:0 10px;
+        }
+        img{
+            width:500px;
+            height: 300px;
+        }
+        .an{
+            content: '';
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            /* background-color: aquamarine; */
+            border-radius: 50%;
+             position: absolute;
+            top: 10px;
+            right: 10px;
+            background-image: url("./2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-origin: center;
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="box" id="box1">
+            <!-- <input type="submit" value="切换" id="qie"> -->
+            <div class="an" id="box2"></div>
+            <!-- <div id="box3"></div> -->
+            <h1 id="font2">bilibli演唱会</h1>
+            <img src="../HTML5/html.exercice/4.6.15百叶窗/img/p1.jpeg" alt="">
+            <p id="font1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo ex consequuntur omnis sapiente rem laudantium pariatur amet consequatur eaque explicabo inventore nesciunt sequi, mollitia molestiae tempora perspiciatis nihil corrupti</p>
+        </div>
+        <script>
+               var box= document.getElementById("box1");
+               var font1=document.getElementById("font1");
+               var font2=document.getElementById("font2");
+               var box2=document.getElementById("box2");
+
+               var i=true;
+              
+                // box2.addEventListener("click",function(){
+                    box2.onclick=function(){
+                    if(i){
+                        box1.style.background="black";
+                        font1.style.color="white";
+                        font2.style.color="white";
+                        box2.style.backgroundImage="url('./1.jpg')";
+                        box2.style.background="contain";
+                        
+
+                        i=false;
+                    }else{
+                        box1.style.background="red";
+                        font1.style.color="black";
+                        font2.style.color="black";
+                        box2.style.backgroundImage="url('./2.jpg')";
+                        box2.style.background="contain";
+                        i=true;
+                    }
+                }     
+                // )
+        </script>
+</body>
+</html>
